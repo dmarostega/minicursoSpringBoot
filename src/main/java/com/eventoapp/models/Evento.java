@@ -25,7 +25,7 @@ public class Evento implements Serializable{
 	private String nome;
 	private String local;
 	private String data;
-	private String horarios;
+	private String horario;
 	
 	public String getNome() {
 		return nome;
@@ -45,11 +45,11 @@ public class Evento implements Serializable{
 	public void setData(String data) {
 		this.data = data;
 	}
-	public String getHorarios() {
-		return horarios;
+	public String getHorario() {
+		return horario;
 	}
-	public void setHorarios(String horarios) {
-		this.horarios = horarios;
+	public void setHorario(String horario) {
+		this.horario = horario;
 	}
 	
 	

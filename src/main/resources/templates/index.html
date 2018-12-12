@@ -1,6 +1,48 @@
 <html>
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
 
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
 <body>
-<h3>Ola mundo com spring boot.</h3>
+	<div class="container">
+	<h2>Lista de Eventos</h2>		
+		<a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Novo Evento</a>  
+	<table>
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Data</th>
+				<th>Horario</th>
+				<th>Local</th>
+			</tr>			
+		</thead>
+		<tbody>
+			<tr th:each="evento : ${eventos}" >
+				<td><span th:text="${evento.nome}" /></td>
+				<td><span th:text="${evento.data}" /></td>
+				<td><span th:text="${evento.horario}" /></td>
+				<td><span th:text="${evento.local}" /></td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<!-- before <div th:each="evento :${eventos}">
+		<div class="row">
+			<span th:text="${evento.nome}"></span> <span
+				th:text="${evento.local}"></span> <span th:text="${evento.data}"></span>
+			<span th:text="${evento.horario}"></span>
+		</div>
+	</div>
+	
+	-->
+	
+	
+	 <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>	
 </body>
 </html>
