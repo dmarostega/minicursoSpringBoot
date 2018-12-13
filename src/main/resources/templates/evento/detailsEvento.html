@@ -31,6 +31,7 @@
 				
 				<button class="waves-effect waves-light btn" type="submit" >Adicionar</button>
 			</form>
+			<th:block th:include="fragments/messageValidation"></th:block>
 		</div>
 		<div th:each="convidado: ${convidados}">
 			<div class="row">
@@ -40,6 +41,7 @@
 				<div class="input-field col s3">
 				 	<p><span th:text="${convidado.nomeConvidado}"></span></p>
 				 </div>
+				 <th:block></th:block>
 			</div>
 		</div>
 
