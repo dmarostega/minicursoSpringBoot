@@ -1,0 +1,53 @@
+<html>
+<head>
+<!--Import Google Icon Font-->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+
+<!--Let browser know website is optimized for mobile-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+	<div class="container">
+	<h2>Detalhes do Evento</h2>		
+		<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de eventos</a>  
+		
+		<div th:each="evento : ${evento}">
+			<div class="row">
+				<p>Nome: <span th:text="${evento.nome}"></span></p>
+				<p>Data: <span th:text="${evento.data}"></span></p>
+				<p>Horário: <span th:text="${evento.horario}"></span></p>
+				<p>Local: <span th:text="${evento.local}"></span></p>
+			</div>
+			
+			<h6>Adicionar Convidado</h6>
+			<form method="post">
+				<label for="convidadeRg">RG</label>
+				<input id="convidadeRg" type="text" value="" name="rg" />
+				
+				<label for="nomeConvidade">Nome</label>
+				<input type="text" id="nomeConvidade" name="nomeConvidado" value=""/>
+				
+				<button class="waves-effect waves-light btn" type="submit" >Adicionar</button>
+			</form>
+		</div>
+		<div th:each="convidado: ${convidados}">
+			<div class="row">
+				<div class="input-field col s6">
+					<p>RG: <span th:text="${convidado.rg}"></span></p>
+				</div>
+				<div class="input-field col s3">
+				 	<p><span th:text="${convidado.nomeConvidado}"></span></p>
+				 </div>
+			</div>
+		</div>
+
+	</div>
+
+	
+	
+	 <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="materialize/js/materialize.min.js"></script>	
+</body>
+</html>
