@@ -9,43 +9,59 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body>
+	<header>			
+		  <nav>
+		    <div class="nav-wrapper teal darken-2">
+		      <a href="#" class="brand-logo center">Cadastro de Eventos</a>
+		      <ul id="nav-mobile" class="left hide-on-med-and-down">
+		        <li><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Lista de Eventos</a></li>
+		        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Novo Evento</a></li>			        
+		      </ul>
+		    </div>
+		  </nav>
+	</header>
 	<div class="container">
-	<h2>Detalhes do Evento</h2>		
-		<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Lista de eventos</a>  
-		
 		<div th:each="evento : ${evento}">
+			<H5>Detalhes do Evento</H5>
 			<div class="row">
-				<p>Nome: <span th:text="${evento.nome}"></span></p>
-				<p>Data: <span th:text="${evento.data}"></span></p>
-				<p>Horário: <span th:text="${evento.horario}"></span></p>
-				<p>Local: <span th:text="${evento.local}"></span></p>
-			</div>
-			
-			<h6>Adicionar Convidado</h6>
-			<form method="post">
-				<label for="convidadeRg">RG</label>
-				<input id="convidadeRg" type="text" value="" name="rg" />
-				
-				<label for="nomeConvidade">Nome</label>
-				<input type="text" id="nomeConvidade" name="nomeConvidado" value=""/>
-				
-				<button class="waves-effect waves-light btn" type="submit" >Adicionar</button>
-			</form>
-			<th:block th:include="fragments/messageValidation"></th:block>
-		</div>
-		<div th:each="convidado: ${convidados}">
-			<div class="row">
-				<div class="input-field col s6">
-					<p>RG: <span th:text="${convidado.rg}"></span></p>
+				<p><b>Nome:</b> <span th:text="${evento.nome}"></span></p>
+				<div class="input-text col s4">
+				<p><b>Data:</b> <span th:text="${evento.data}"></span></p>
 				</div>
-				<div class="input-field col s3">
-				 	<p><span th:text="${convidado.nomeConvidado}"></span></p>
-				 </div>
-				 <th:block></th:block>
+				<div class="input-text col s4">
+				<p><b>Horário:</b> <span th:text="${evento.horario}"></span></p>
+				</div>
+				<div class="input-text col s4">
+				<p><b>Local:</b> <span th:text="${evento.local}"></span></p>
+				</div>	 
 			</div>
-		</div>
-
+		</div>			
+		<h6>Adicionar Convidado</h6>
+		<form method="post">
+			<label for="convidadeRg">RG</label>
+			<input id="convidadeRg" type="text" value="" name="rg" />
+			
+			<label for="nomeConvidade">Nome</label>
+			<input type="text" id="nomeConvidade" name="nomeConvidado" value=""/>
+			
+			<button class="waves-effect waves-light btn" type="submit" >Adicionar</button>
+		</form>
+		<th:block th:include="fragments/messageValidation"></th:block>
+		<table >
+			<tr th:each="convidado: ${convidados}">
+				<td>
+					<span th:text="${convidado.rg}"></span>
+				</td>
+				<td>
+					<span th:text="${convidado.nomeConvidado}"></span>
+				</td>		
+				<td>
+					<a th:href="${(#mvc.url('EC#deleteConvidado').arg(0,convidado.rg)).build()}" class="btn-floating"><i class="material-icons">delete</i></a>
+				</td>
+			</tr>					
+		</table>
 	</div>
+
 
 	
 	

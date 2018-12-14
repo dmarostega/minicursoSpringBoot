@@ -12,10 +12,21 @@
 		<!--Let browser know website is optimized for mobile-->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
      </head>
-     <div class="container" >
+  
           <body>
-	     	<h3>Cadastro de Eventos</h3>
-	     	<a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Lista de Eventos</a>  
+			<header>			
+			  <nav>
+			    <div class="nav-wrapper teal darken-2">
+			      <a href="#" class="brand-logo center">Cadastro de Eventos</a>
+			      <ul id="nav-mobile" class="left hide-on-med-and-down">
+			        <li><a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">list</i>Lista de Eventos</a></li>
+			        <li><a href="/cadastrarEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Novo Evento</a></li>			        
+			      </ul>
+			    </div>
+			  </nav>
+			 </header>
+	     <div class="container"  >
+	     	<h5 style="padding:20px"> Cadastrar Novo Evento</h5>
 	     	<form method="POST">
 	     		Nome: <input type="text" value="" name="nome" />
 	     		<div class="row">
@@ -37,6 +48,6 @@
 	     	
 	     	<!--JavaScript at end of body for optimized loading-->
     	 	<script type="text/javascript" src="materialize/js/materialize.min.js"></script>	
-	     </body>
 	 </div>
+	 </body>
 </html>
